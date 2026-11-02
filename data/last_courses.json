@@ -1,0 +1,37 @@
+[
+ {
+  "code": "CS101",
+  "name": "程序设计基础",
+  "credit": 3.0
+ },
+ {
+  "code": "MA101",
+  "name": "高等数学A(上)",
+  "credit": 5.0
+ },
+ {
+  "code": "EN101",
+  "name": "大学英语(一)",
+  "credit": 3.0
+ },
+ {
+  "code": "CS102",
+  "name": "计算机导论",
+  "credit": 2.0
+ },
+ {
+  "code": "MA102",
+  "name": "离散数学",
+  "credit": 3.0
+ },
+ {
+  "code": "PE101",
+  "name": "大学体育(一)",
+  "credit": 1.0
+ },
+ {
+  "code": "SZ101",
+  "name": "思想道德与法治",
+  "credit": 3.0
+ }
+]

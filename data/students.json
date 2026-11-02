@@ -1,0 +1,1802 @@
+[
+ {
+  "sno": "2024010101",
+  "name": "谢若曦",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13851799275",
+  "email": "2024010101@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010102",
+  "name": "邹承宇",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13825120025",
+  "email": "2024010102@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010103",
+  "name": "王浩然",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13839298802",
+  "email": "2024010103@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010104",
+  "name": "周志强",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13877322816",
+  "email": "2024010104@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010105",
+  "name": "韦若曦",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13832518654",
+  "email": "2024010105@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010106",
+  "name": "许宇轩",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13821476343",
+  "email": "2024010106@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010107",
+  "name": "马嘉怡",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13881300368",
+  "email": "2024010107@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010108",
+  "name": "云雅静",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13865764822",
+  "email": "2024010108@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010109",
+  "name": "水佳琪",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13844976106",
+  "email": "2024010109@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010110",
+  "name": "云明轩",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13849774325",
+  "email": "2024010110@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010111",
+  "name": "章诗涵",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13853879893",
+  "email": "2024010111@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010112",
+  "name": "陈若曦",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13845042758",
+  "email": "2024010112@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010113",
+  "name": "吴梓萱",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13859940502",
+  "email": "2024010113@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010114",
+  "name": "褚泽宇",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13850910331",
+  "email": "2024010114@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010115",
+  "name": "张天佑",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13894534998",
+  "email": "2024010115@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010116",
+  "name": "何皓轩",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13823061688",
+  "email": "2024010116@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010117",
+  "name": "葛承宇",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13829844136",
+  "email": "2024010117@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010118",
+  "name": "杨欣怡",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13838696528",
+  "email": "2024010118@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010119",
+  "name": "孙书豪",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13850144584",
+  "email": "2024010119@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010120",
+  "name": "郎浩然",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13811444358",
+  "email": "2024010120@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010121",
+  "name": "吴浩然",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13843369517",
+  "email": "2024010121@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010122",
+  "name": "云俊杰",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13833187051",
+  "email": "2024010122@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010123",
+  "name": "朱子墨",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13872205943",
+  "email": "2024010123@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010124",
+  "name": "周慧敏",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13897317768",
+  "email": "2024010124@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010125",
+  "name": "袁梦琪",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13851526001",
+  "email": "2024010125@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010126",
+  "name": "陶雨桐",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13822281598",
+  "email": "2024010126@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010127",
+  "name": "韦慧敏",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13832771963",
+  "email": "2024010127@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010128",
+  "name": "葛浩然",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13894980216",
+  "email": "2024010128@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010129",
+  "name": "魏子墨",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13881126074",
+  "email": "2024010129@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010130",
+  "name": "姜思远",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13864587039",
+  "email": "2024010130@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010131",
+  "name": "柏慧敏",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13816532942",
+  "email": "2024010131@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010132",
+  "name": "周梦琪",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13817005052",
+  "email": "2024010132@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010133",
+  "name": "苗思远",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13894960144",
+  "email": "2024010133@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010134",
+  "name": "彭文博",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13837452371",
+  "email": "2024010134@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010135",
+  "name": "韩文博",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13892511562",
+  "email": "2024010135@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010136",
+  "name": "苗婉清",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13890523914",
+  "email": "2024010136@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010137",
+  "name": "戚文博",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13896075777",
+  "email": "2024010137@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010138",
+  "name": "袁泽宇",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13816332500",
+  "email": "2024010138@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010139",
+  "name": "谢锦程",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13823056648",
+  "email": "2024010139@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010140",
+  "name": "冯嘉怡",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13874960206",
+  "email": "2024010140@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010141",
+  "name": "云嘉怡",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13868656154",
+  "email": "2024010141@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010142",
+  "name": "朱俊杰",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13895495694",
+  "email": "2024010142@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010143",
+  "name": "赵泽宇",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13852905213",
+  "email": "2024010143@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010144",
+  "name": "何明轩",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13840072366",
+  "email": "2024010144@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010145",
+  "name": "马书豪",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13847469683",
+  "email": "2024010145@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010146",
+  "name": "范浩然",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13853565583",
+  "email": "2024010146@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010147",
+  "name": "喻可欣",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13842419195",
+  "email": "2024010147@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010148",
+  "name": "喻佳琪",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13863538273",
+  "email": "2024010148@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010149",
+  "name": "花宇轩",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13878184788",
+  "email": "2024010149@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010150",
+  "name": "花一诺",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13852836197",
+  "email": "2024010150@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010151",
+  "name": "柏可欣",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13816620900",
+  "email": "2024010151@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010152",
+  "name": "吕婉清",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13871563153",
+  "email": "2024010152@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010153",
+  "name": "魏若曦",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13843059649",
+  "email": "2024010153@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010154",
+  "name": "王静怡",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13856169496",
+  "email": "2024010154@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010155",
+  "name": "魏锦程",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13822997837",
+  "email": "2024010155@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010156",
+  "name": "王一诺",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13836126275",
+  "email": "2024010156@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010157",
+  "name": "任锦程",
+  "gender": "男",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13893666508",
+  "email": "2024010157@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010158",
+  "name": "韦梦琪",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13810621624",
+  "email": "2024010158@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010159",
+  "name": "蒋婉清",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13818502671",
+  "email": "2024010159@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010160",
+  "name": "窦梓萱",
+  "gender": "女",
+  "class_name": "数据科学2401",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13829079292",
+  "email": "2024010160@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010201",
+  "name": "陈思远",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13856467886",
+  "email": "2024010201@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010202",
+  "name": "施明轩",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13871290091",
+  "email": "2024010202@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010203",
+  "name": "凤梦琪",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13878471567",
+  "email": "2024010203@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010204",
+  "name": "柏承宇",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13854177537",
+  "email": "2024010204@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010205",
+  "name": "韩泽宇",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13813234460",
+  "email": "2024010205@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010206",
+  "name": "朱宇轩",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13814371610",
+  "email": "2024010206@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010207",
+  "name": "许子涵",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13840782375",
+  "email": "2024010207@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010208",
+  "name": "华文博",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13831568684",
+  "email": "2024010208@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010209",
+  "name": "柳思远",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13849585920",
+  "email": "2024010209@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010210",
+  "name": "俞佳琪",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13834701195",
+  "email": "2024010210@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010211",
+  "name": "邹梦琪",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13811476002",
+  "email": "2024010211@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010212",
+  "name": "苗梦琪",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13874618856",
+  "email": "2024010212@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010213",
+  "name": "何静怡",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13830247964",
+  "email": "2024010213@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010214",
+  "name": "吴思远",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13860451137",
+  "email": "2024010214@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010215",
+  "name": "孙子墨",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13858641900",
+  "email": "2024010215@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010216",
+  "name": "苏子涵",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13891731956",
+  "email": "2024010216@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010217",
+  "name": "昌锦程",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13871631720",
+  "email": "2024010217@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010218",
+  "name": "吴子涵",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13888605132",
+  "email": "2024010218@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010219",
+  "name": "柏一诺",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13837472746",
+  "email": "2024010219@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010220",
+  "name": "杨一诺",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13824437552",
+  "email": "2024010220@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010221",
+  "name": "花婉清",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13827757178",
+  "email": "2024010221@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010222",
+  "name": "张俊杰",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13846022410",
+  "email": "2024010222@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010223",
+  "name": "谢雨桐",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13843749388",
+  "email": "2024010223@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010224",
+  "name": "潘欣怡",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13854354092",
+  "email": "2024010224@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010225",
+  "name": "朱慧敏",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13874026147",
+  "email": "2024010225@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010226",
+  "name": "郑承宇",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13814240236",
+  "email": "2024010226@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010227",
+  "name": "潘子涵",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13839278817",
+  "email": "2024010227@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010228",
+  "name": "姜若曦",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13857167605",
+  "email": "2024010228@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010229",
+  "name": "秦书豪",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13832936047",
+  "email": "2024010229@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010230",
+  "name": "范俊杰",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13824436063",
+  "email": "2024010230@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010231",
+  "name": "戚书豪",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13862734039",
+  "email": "2024010231@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010232",
+  "name": "钱一诺",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13812606575",
+  "email": "2024010232@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010233",
+  "name": "奚子墨",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13848317247",
+  "email": "2024010233@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010234",
+  "name": "戚明轩",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13813513029",
+  "email": "2024010234@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010235",
+  "name": "马雨桐",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13848769834",
+  "email": "2024010235@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010236",
+  "name": "云浩然",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13841098142",
+  "email": "2024010236@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010237",
+  "name": "韩可欣",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13841781965",
+  "email": "2024010237@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010238",
+  "name": "沈诗涵",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13880376669",
+  "email": "2024010238@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010239",
+  "name": "曹泽宇",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13824053354",
+  "email": "2024010239@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010240",
+  "name": "方雨桐",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13840104180",
+  "email": "2024010240@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010241",
+  "name": "褚嘉怡",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13847329344",
+  "email": "2024010241@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010242",
+  "name": "谢书豪",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13846605160",
+  "email": "2024010242@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010243",
+  "name": "任梦琪",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13834246718",
+  "email": "2024010243@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010244",
+  "name": "姜诗涵",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13819649663",
+  "email": "2024010244@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010245",
+  "name": "彭佳琪",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13868366982",
+  "email": "2024010245@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010246",
+  "name": "潘明轩",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13820039497",
+  "email": "2024010246@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010247",
+  "name": "孙雅静",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13863284707",
+  "email": "2024010247@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010248",
+  "name": "沈俊杰",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13839772199",
+  "email": "2024010248@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010249",
+  "name": "凤书豪",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13880156317",
+  "email": "2024010249@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010250",
+  "name": "俞子墨",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13839888757",
+  "email": "2024010250@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010251",
+  "name": "秦文博",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13877108090",
+  "email": "2024010251@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010252",
+  "name": "奚梓萱",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13897763482",
+  "email": "2024010252@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010253",
+  "name": "云若曦",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13836741399",
+  "email": "2024010253@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010254",
+  "name": "朱锦程",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13891950399",
+  "email": "2024010254@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010255",
+  "name": "沈天佑",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13824802245",
+  "email": "2024010255@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010256",
+  "name": "张一诺",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13854156432",
+  "email": "2024010256@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010257",
+  "name": "许雅静",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13817795342",
+  "email": "2024010257@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010258",
+  "name": "陈雅静",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13876539191",
+  "email": "2024010258@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010259",
+  "name": "凤子涵",
+  "gender": "男",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13831408985",
+  "email": "2024010259@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010260",
+  "name": "华慧敏",
+  "gender": "女",
+  "class_name": "数据科学2402",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13854197247",
+  "email": "2024010260@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010301",
+  "name": "范一诺",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13829805762",
+  "email": "2024010301@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010302",
+  "name": "褚静怡",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13849453222",
+  "email": "2024010302@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010303",
+  "name": "葛梦琪",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13852249740",
+  "email": "2024010303@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010304",
+  "name": "王佳琪",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13818843254",
+  "email": "2024010304@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010305",
+  "name": "蒋一诺",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13821929691",
+  "email": "2024010305@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010306",
+  "name": "王婉清",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13814575872",
+  "email": "2024010306@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010307",
+  "name": "沈一诺",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13829262058",
+  "email": "2024010307@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010308",
+  "name": "方泽宇",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13829042359",
+  "email": "2024010308@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010309",
+  "name": "蒋文博",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13850421314",
+  "email": "2024010309@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010310",
+  "name": "朱雅静",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13838154813",
+  "email": "2024010310@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010311",
+  "name": "钱静怡",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13814682385",
+  "email": "2024010311@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010312",
+  "name": "杨若曦",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13844718584",
+  "email": "2024010312@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010313",
+  "name": "朱浩然",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13859440695",
+  "email": "2024010313@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010314",
+  "name": "金梦琪",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13846174834",
+  "email": "2024010314@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010315",
+  "name": "许书豪",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13877625462",
+  "email": "2024010315@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010316",
+  "name": "方静怡",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13852775682",
+  "email": "2024010316@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010317",
+  "name": "褚宇轩",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13844125964",
+  "email": "2024010317@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010318",
+  "name": "曹晨阳",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13822286715",
+  "email": "2024010318@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010319",
+  "name": "姜泽宇",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13892916046",
+  "email": "2024010319@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010320",
+  "name": "张佳琪",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13882228687",
+  "email": "2024010320@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010321",
+  "name": "潘思远",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13877264474",
+  "email": "2024010321@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010322",
+  "name": "褚俊杰",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13873891933",
+  "email": "2024010322@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010323",
+  "name": "任文博",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13816993394",
+  "email": "2024010323@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010324",
+  "name": "沈可欣",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13877905281",
+  "email": "2024010324@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010325",
+  "name": "韦浩然",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13815551916",
+  "email": "2024010325@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010326",
+  "name": "许思远",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13851285214",
+  "email": "2024010326@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010327",
+  "name": "钱诗涵",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13867687436",
+  "email": "2024010327@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010328",
+  "name": "云可欣",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13839658036",
+  "email": "2024010328@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010329",
+  "name": "云梓萱",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13818637826",
+  "email": "2024010329@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010330",
+  "name": "赵浩然",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13893684850",
+  "email": "2024010330@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010331",
+  "name": "谢浩然",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13860377926",
+  "email": "2024010331@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010332",
+  "name": "葛诗涵",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13857255736",
+  "email": "2024010332@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010333",
+  "name": "张子涵",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13834741585",
+  "email": "2024010333@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010334",
+  "name": "曹可欣",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13887535802",
+  "email": "2024010334@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010335",
+  "name": "任可欣",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13834510873",
+  "email": "2024010335@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010336",
+  "name": "水诗涵",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13819797010",
+  "email": "2024010336@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010337",
+  "name": "喻天佑",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13873884178",
+  "email": "2024010337@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010338",
+  "name": "沈锦程",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13811027122",
+  "email": "2024010338@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010339",
+  "name": "郑书豪",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13821882946",
+  "email": "2024010339@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010340",
+  "name": "鲁诗涵",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13873206665",
+  "email": "2024010340@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010341",
+  "name": "范梦琪",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13877204043",
+  "email": "2024010341@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010342",
+  "name": "杨梓萱",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13844457958",
+  "email": "2024010342@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010343",
+  "name": "郎天佑",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13812951235",
+  "email": "2024010343@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010344",
+  "name": "奚子涵",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13856886750",
+  "email": "2024010344@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010345",
+  "name": "秦若曦",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13847063229",
+  "email": "2024010345@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010346",
+  "name": "王嘉怡",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13894098290",
+  "email": "2024010346@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010347",
+  "name": "吕子墨",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13849733353",
+  "email": "2024010347@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010348",
+  "name": "马浩然",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13874302039",
+  "email": "2024010348@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010349",
+  "name": "孔浩然",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13832255940",
+  "email": "2024010349@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010350",
+  "name": "吴婉清",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13841711309",
+  "email": "2024010350@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010351",
+  "name": "姜浩然",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13843410313",
+  "email": "2024010351@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010352",
+  "name": "戚嘉怡",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13897408706",
+  "email": "2024010352@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010353",
+  "name": "王泽宇",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13841871639",
+  "email": "2024010353@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010354",
+  "name": "张嘉怡",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13894423148",
+  "email": "2024010354@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010355",
+  "name": "严若曦",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13823075469",
+  "email": "2024010355@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010356",
+  "name": "戚静怡",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13843404212",
+  "email": "2024010356@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010357",
+  "name": "戚浩然",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13840660441",
+  "email": "2024010357@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010358",
+  "name": "水可欣",
+  "gender": "男",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13887037650",
+  "email": "2024010358@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010359",
+  "name": "孔雨桐",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13824882477",
+  "email": "2024010359@stu.univ.edu.cn"
+ },
+ {
+  "sno": "2024010360",
+  "name": "吕明轩",
+  "gender": "女",
+  "class_name": "数据科学2403",
+  "major": "数据科学与大数据技术",
+  "enroll_year": "2024",
+  "phone": "13838514471",
+  "email": "2024010360@stu.univ.edu.cn"
+ }
+]

@@ -1,0 +1,72 @@
+[
+ {
+  "code": "CS201",
+  "name": "数据结构与算法",
+  "credit": 4.0,
+  "hours": 64,
+  "category": "专业必修",
+  "teacher_tno": "T1001",
+  "teacher_name": "张伟",
+  "semester": "2024-2025-2"
+ },
+ {
+  "code": "CS202",
+  "name": "面向对象程序设计",
+  "credit": 3.0,
+  "hours": 48,
+  "category": "专业必修",
+  "teacher_tno": "T1001",
+  "teacher_name": "张伟",
+  "semester": "2024-2025-2"
+ },
+ {
+  "code": "CS203",
+  "name": "计算机组成原理",
+  "credit": 3.0,
+  "hours": 48,
+  "category": "专业必修",
+  "teacher_tno": "T1002",
+  "teacher_name": "李强",
+  "semester": "2024-2025-2"
+ },
+ {
+  "code": "CS204",
+  "name": "数据库原理",
+  "credit": 3.0,
+  "hours": 48,
+  "category": "专业必修",
+  "teacher_tno": "T1002",
+  "teacher_name": "李强",
+  "semester": "2024-2025-2"
+ },
+ {
+  "code": "MA201",
+  "name": "高等数学A(下)",
+  "credit": 5.0,
+  "hours": 80,
+  "category": "通识必修",
+  "teacher_tno": "T1003",
+  "teacher_name": "王芳",
+  "semester": "2024-2025-2"
+ },
+ {
+  "code": "CS205",
+  "name": "计算机网络",
+  "credit": 3.0,
+  "hours": 48,
+  "category": "专业必修",
+  "teacher_tno": "T1004",
+  "teacher_name": "陈晨",
+  "semester": "2024-2025-2"
+ },
+ {
+  "code": "SZ201",
+  "name": "中国近现代史纲要",
+  "credit": 3.0,
+  "hours": 48,
+  "category": "通识必修",
+  "teacher_tno": "T1005",
+  "teacher_name": "赵敏",
+  "semester": "2024-2025-2"
+ }
+]

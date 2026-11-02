@@ -1,0 +1,47 @@
+[
+ {
+  "tno": "T1001",
+  "name": "张伟",
+  "title": "副教授",
+  "dept": "计算机学院",
+  "research": "数据结构与算法、程序设计教学",
+  "phone": "13900001001",
+  "email": "zhangwei@univ.edu.cn"
+ },
+ {
+  "tno": "T1002",
+  "name": "李强",
+  "title": "讲师",
+  "dept": "计算机学院",
+  "research": "计算机体系结构、数据库系统",
+  "phone": "13900001002",
+  "email": "liqiang@univ.edu.cn"
+ },
+ {
+  "tno": "T1003",
+  "name": "王芳",
+  "title": "副教授",
+  "dept": "计算机学院",
+  "research": "高等数学、数值计算",
+  "phone": "13900001003",
+  "email": "wangfang@univ.edu.cn"
+ },
+ {
+  "tno": "T1004",
+  "name": "陈晨",
+  "title": "讲师",
+  "dept": "计算机学院",
+  "research": "计算机网络、网络安全",
+  "phone": "13900001004",
+  "email": "chenchen@univ.edu.cn"
+ },
+ {
+  "tno": "T1005",
+  "name": "赵敏",
+  "title": "讲师",
+  "dept": "马克思主义学院",
+  "research": "思想政治教育",
+  "phone": "13900001005",
+  "email": "zhaomin@univ.edu.cn"
+ }
+]
