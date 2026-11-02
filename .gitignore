@@ -1,0 +1,22 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# ---------- 环境变量（含 API Key，绝不入库）----------
+.env
+.env.local
+
+# ---------- 运行时产物 ----------
+data/*.db
+data/exports/
+logs/
+*.log
+
+# ---------- 编辑器 ----------
+.vscode/*
+!.vscode/settings.json
+.idea/
+.DS_Store

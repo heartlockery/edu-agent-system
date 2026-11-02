@@ -1,0 +1,28 @@
+# ---------- Web 服务层 ----------
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+python-multipart>=0.0.9        # 教师上传 Excel 成绩表
+httpx>=0.27.0                  # 异步 HTTP（LangChain 底层也会用）
+
+# ---------- 数据库层 ----------
+SQLAlchemy>=2.0.30             # ORM + 2.0 异步 API
+aiosqlite>=0.20.0              # 本地默认：异步 SQLite
+aiomysql>=0.2.0                # 线上云 MySQL（异步驱动），用 MySQL 时装
+pymysql>=1.1.0                 # aiomysql 的同步底座
+asyncpg>=0.29.0                # 线上云 PostgreSQL（异步驱动），用 PG 时装
+greenlet>=3.0.0                # SQLAlchemy 异步模式的必需依赖
+
+# ---------- AI Agent 层 ----------
+langchain-core>=0.3.0          # Prompt / Tool / Runnable 抽象
+langchain-openai>=0.2.0        # 兼容 OpenAI 协议的 Chat / Embedding 客户端
+langgraph>=0.2.40              # Agent 状态图（planner -> tools -> responder）
+langsmith>=0.1.100             # 链路追踪（不配置也能跑）
+
+# ---------- 数据处理 ----------
+openpyxl>=3.1.2                # 读写 .xlsx（成绩导入/导出、课表生成）
+pandas>=2.2.0                  # 批量清洗成绩表
+numpy>=1.26.0                  # 离线版 RAG 的向量检索矩阵运算
+
+# ---------- 可选增强（按需取消注释） ----------
+# faiss-cpu>=1.8.0             # 大规模向量检索，数据量 > 10 万条时启用
+# jieba>=0.42.1                # 中文分词，可让离线 RAG 命中率更高
