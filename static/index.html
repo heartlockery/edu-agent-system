@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>智能教务系统 · LangChain + LangGraph Agent</title>
+<style>
+  /* ---------- 基础样式：深色卡片风，单文件零依赖 ---------- */
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+         background: #0f1720; color: #e6edf3; }
+  button { cursor: pointer; border: none; border-radius: 8px; padding: 8px 14px;
+           background: #1f6feb; color: #fff; font-size: 14px; }
+  button.ghost { background: #21262d; color: #c9d1d9; }
+  button.danger { background: #b62324; }
+  button.small { padding: 4px 10px; font-size: 12px; }
+  input, select, textarea { padding: 9px 12px; border-radius: 8px; border: 1px solid #30363d;
+                  background: #0d1117; color: #e6edf3; font-size: 14px; width: 100%; font-family: inherit; }
+  textarea { min-height: 64px; resize: vertical; }
+  h3 { margin: 0 0 12px; font-size: 17px; }
+  .muted { color: #8b949e; font-size: 13px; }
+  .err { color: #f85149; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13px; }
+  th, td { border-bottom: 1px solid #21262d; padding: 8px 10px; text-align: left; }
+  th { color: #8b949e; font-weight: 400; background: #161b22; }
+  tr:hover td { background: #161b22; }
+
+  /* ---------- 登录页 ---------- */
+  #login { max-width: 440px; margin: 7vh auto; background: #161b22; border: 1px solid #21262d;
+           border-radius: 14px; padding: 28px; }
+  #login h1 { font-size: 20px; margin: 0 0 4px; }
+  .tabs { display: flex; gap: 8px; margin: 18px 0; }
+  .tab { flex: 1; text-align: center; padding: 8px; border-radius: 8px; background: #0d1117;
+         color: #8b949e; cursor: pointer; font-size: 14px; }
+  .tab.active { background: #1f6feb; color: #fff; }
+  .field { margin-bottom: 12px; }
+  .field label { display: block; font-size: 13px; color: #8b949e; margin-bottom: 6px; }
+  #recovery { margin-top: 16px; border-top: 1px dashed #30363d; padding-top: 12px; display: none; }
+  #recovery.show { display: block; }
+
+  /* ---------- 主界面 ---------- */
+  header { display: flex; align-items: center; justify-content: space-between;
+           padding: 12px 20px; background: #161b22; border-bottom: 1px solid #21262d; }
+  .brand { font-weight: 600; letter-spacing: 1px; }
+  .layout { display: flex; height: calc(100vh - 57px); }
+  aside { width: 260px; overflow-y: auto; border-right: 1px solid #21262d; padding: 12px; }
+  aside .cat { color: #8b949e; font-size: 12px; margin: 14px 6px 6px; }
+  aside button { display: block; width: 100%; text-align: left; margin-bottom: 4px;
+                 background: transparent; color: #c9d1d9; padding: 7px 10px; font-size: 13px; }
+  aside button:hover { background: #21262d; }
+  aside button.dev { color: #6e7681; }
+  aside button.dev::after { content: " 开发中"; font-size: 11px; color: #6e7681; }
+  main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+  #panel { flex: 1; overflow-y: auto; padding: 18px 22px; }
+  #chatbox { border-top: 1px solid #21262d; padding: 12px 18px; background: #0d1117; }
+  #chatlog { max-height: 32vh; overflow-y: auto; margin-bottom: 10px; }
+  .msg { padding: 9px 13px; border-radius: 10px; margin-bottom: 8px; max-width: 86%;
+         font-size: 14px; line-height: 1.6; white-space: pre-wrap; }
+  .msg.me { background: #1f6feb; margin-left: auto; }
+  .msg.ai { background: #161b22; border: 1px solid #21262d; }
+  .msg .trace { margin-top: 8px; font-size: 12px; color: #8b949e; }
+  .ask-row { display: flex; gap: 8px; }
+
+  /* ---------- 课表 ---------- */
+  .grid-tt { width: 100%; border-collapse: collapse; }
+  .grid-tt td, .grid-tt th { border: 1px solid #21262d; text-align: center; height: 62px;
+                             font-size: 12px; vertical-align: middle; }
+  .grid-tt .slot { color: #8b949e; width: 130px; }
+
+  /* ---------- 日历 ---------- */
+  .cal-head { display: flex; align-items: center; gap: 10px; margin: 6px 0 10px; }
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+  .cal-cell { min-height: 78px; border: 1px solid #21262d; border-radius: 8px;
+              padding: 6px; font-size: 12px; background: #0d1117; }
+  .cal-cell.head { min-height: auto; border: none; background: transparent; color: #8b949e; text-align: center; }
+  .cal-cell.today { border-color: #1f6feb; box-shadow: 0 0 0 1px #1f6feb inset; }
+  .cal-cell .d { color: #8b949e; margin-bottom: 4px; }
+  .cal-cell .c { color: #7ee787; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .cal-cell .e { color: #f0883e; display: block; }
+  .cal-cell.blank { background: transparent; border: 1px dashed #21262d; }
+
+  /* ---------- 表单 ---------- */
+  .form-card { background: #161b22; border: 1px solid #21262d; border-radius: 10px;
+               padding: 16px; max-width: 560px; margin-bottom: 16px; }
+  .toast { position: fixed; bottom: 24px; right: 24px; background: #1f6feb; color: #fff;
+           padding: 10px 16px; border-radius: 8px; font-size: 13px; opacity: 0; transition: .25s; z-index: 9; }
+  .toast.show { opacity: 1; }
+  .cards { display: flex; gap: 12px; flex-wrap: wrap; }
+  .card { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 14px 18px; min-width: 130px; }
+  .card b { font-size: 22px; display: block; margin-top: 6px; }
+  .kv { display: grid; grid-template-columns: 120px 1fr; gap: 8px 12px; font-size: 14px; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<!-- ============ 登录页 ============ -->
+<div id="login">
+  <h1>智能教务系统</h1>
+  <p class="muted">LangChain · LangGraph · LangSmith · RAG · 双大模型 Agent</p>
+  <div class="tabs">
+    <div class="tab active" data-role="student">学生</div>
+    <div class="tab" data-role="teacher">教师</div>
+    <div class="tab" data-role="admin">管理员</div>
+  </div>
+  <div class="field"><label>账号（学号 / 工号 / 管理员账号）</label><input id="username" placeholder="如 2024010101"></div>
+  <div class="field"><label>密码（默认 123456）</label><input id="password" type="password" placeholder="123456"></div>
+  <button style="width:100%" onclick="doLogin()">登 录</button>
+  <p class="muted" style="margin-top:12px;cursor:pointer" onclick="toggleRecovery()">忘记学号 / 密码？点这里申请找回</p>
+
+  <div id="recovery">
+    <p class="muted">填写班级和姓名，管理员审核后会把密码重置为 123456。</p>
+    <div class="field"><label>姓名</label><input id="r_name" placeholder="张三"></div>
+    <div class="field"><label>班级</label><input id="r_class" placeholder="数据科学2401"></div>
+    <div class="field"><label>联系方式</label><input id="r_contact" placeholder="手机号或邮箱"></div>
+    <div class="field"><label>申请类型</label>
+      <select id="r_type"><option>找回账号</option><option>密码重置</option></select>
+    </div>
+    <button class="ghost" style="width:100%" onclick="submitRecovery()">提交申请</button>
+  </div>
+</div>
+
+<!-- ============ 主界面 ============ -->
+<div id="app" hidden>
+  <header>
+    <div class="brand">智能教务系统</div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <span id="who" class="muted"></span>
+      <button class="ghost small" data-action="change-pwd">修改密码</button>
+      <button class="ghost small" onclick="logout()">退出登录</button>
+    </div>
+  </header>
+  <div class="layout">
+    <aside id="menu"></aside>
+    <main>
+      <section id="panel"></section>
+      <section id="chatbox">
+        <div id="chatlog"></div>
+        <div class="ask-row">
+          <input id="ask" placeholder="和我说说话吧～ 比如：我上学期高数多少分 / 这周三有什么课"
+                 onkeydown="if(event.key==='Enter'){sendAsk()}">
+          <button onclick="sendAsk()">发送</button>
+        </div>
+        <p class="muted" id="aihint" style="margin:6px 0 0"></p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   1. 全局状态
+   ============================================================ */
+var S = { token: localStorage.getItem('edu_token') || '', role: '', session: 'default',
+          menus: [], calYear: 0, calMonth: 0 };
+
+function roleName(r) { return r === 'teacher' ? '教师' : (r === 'admin' ? '管理员' : '学生'); }
+function esc(text) {
+  return String(text === null || text === undefined ? '' : text)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+function toast(msg) {
+  var el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(function () { el.classList.remove('show'); }, 2600);
+}
+
+/* ============================================================
+   2. 请求封装：JSON / 文件上传 / 鉴权下载
+   ============================================================ */
+async function api(path, opts) {
+  opts = opts || {};
+  var headers = { 'Content-Type': 'application/json' };
+  if (S.token) headers['Authorization'] = 'Bearer ' + S.token;
+  var res = await fetch(path, {
+    method: opts.method || 'GET', headers: headers,
+    body: opts.body ? JSON.stringify(opts.body) : undefined
+  });
+  if (res.status === 401) { logout(); throw new Error('登录已过期，请重新登录'); }
+  var ct = res.headers.get('content-type') || '';
+  if (ct.indexOf('json') >= 0) {
+    var data = await res.json();
+    if (!res.ok) throw new Error(data.detail || '请求失败');
+    return data;
+  }
+  if (!res.ok) throw new Error('请求失败：' + res.status);
+  return await res.text();
+}
+
+async function apiUpload(path, file) {
+  var fd = new FormData();
+  fd.append('file', file);
+  var res = await fetch(path, { method: 'POST', headers: { 'Authorization': 'Bearer ' + S.token }, body: fd });
+  var data = await res.json();
+  if (!res.ok) throw new Error(data.detail || '上传失败');
+  return data;
+}
+
+/* 带鉴权的文件下载：先取 blob 再触发浏览器下载 */
+async function downloadFile(path) {
+  var res = await fetch(path, { headers: { 'Authorization': 'Bearer ' + S.token } });
+  if (!res.ok) { var d = await res.json().catch(function () { return {}; }); throw new Error(d.detail || '下载失败'); }
+  var blob = await res.blob();
+  var name = '导出文件.xlsx';
+  var cd = res.headers.get('content-disposition') || '';
+  var m = cd.match(/filename\*?=(?:UTF-8'')?"?([^";]+)"?/i);
+  if (m) { try { name = decodeURIComponent(m[1]); } catch (e) { name = m[1]; } }
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+/* ============================================================
+   3. 登录 / 找回 / 退出
+   ============================================================ */
+document.querySelectorAll('.tab').forEach(function (tab) {
+  tab.onclick = function () {
+    document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('active'); });
+    tab.classList.add('active');
+  };
+});
+function toggleRecovery() { document.getElementById('recovery').classList.toggle('show'); }
+
+async function doLogin() {
+  var role = document.querySelector('.tab.active').dataset.role;
+  var username = document.getElementById('username').value.trim();
+  var password = document.getElementById('password').value.trim() || '123456';
+  if (!username) { toast('请输入账号呀'); return; }
+  try {
+    var data = await api('/api/auth/login', { method: 'POST', body: { role: role, username: username, password: password } });
+    S.token = data.token;
+    localStorage.setItem('edu_token', data.token);
+    await boot();
+  } catch (e) { toast(e.message); }
+}
+
+async function submitRecovery() {
+  var name = document.getElementById('r_name').value.trim();
+  var cls = document.getElementById('r_class').value.trim();
+  if (!name || !cls) { toast('姓名和班级都要填哦'); return; }
+  try {
+    var res = await api('/api/auth/recovery', { method: 'POST', body: {
+      role: 'student', name: name, class_name: cls,
+      contact: document.getElementById('r_contact').value.trim(),
+      request_type: document.getElementById('r_type').value, reason: '忘记账号或密码' }});
+    toast(res.message);
+  } catch (e) { toast(e.message); }
+}
+
+function logout() {
+  localStorage.removeItem('edu_token');
+  S.token = ''; S.role = '';
+  document.getElementById('app').hidden = true;
+  document.getElementById('login').hidden = false;
+}
+
+/* ============================================================
+   4. 启动
+   ============================================================ */
+async function boot() {
+  var me;
+  try { me = await api('/api/auth/me'); } catch (e) { return; }
+  S.role = me.role;
+  document.getElementById('login').hidden = true;
+  document.getElementById('app').hidden = false;
+  document.getElementById('who').textContent = roleName(me.role) + ' · ' + me.name + '（' + me.username + '）';
+
+  var menu = await api('/api/auth/menu');
+  S.menus = menu.menus || [];
+  renderMenu();
+  document.getElementById('chatlog').innerHTML = '';
+  document.getElementById('chatbox').hidden = (S.role === 'admin');
+
+  if (S.role === 'admin') { loadFeature('/api/admin/stats', '数据总览'); return; }
+  await loadGreeting();
+  await renderHome();
+  loadHealth();
+  loadBadge();
+}
+
+async function loadGreeting() {
+  try {
+    var g = await api('/api/chat/greeting');
+    bubble('ai', g.text);
+  } catch (e) { /* 打招呼失败不影响使用 */ }
+}
+
+async function updateScope() {
+  var sel = document.getElementById('n_class');
+  var el = document.getElementById('n_scope');
+  if (!sel || !el) return;
+  try {
+    var d = await api('/api/teacher/classes');
+    var total = d.items.reduce(function (a, c) { return a + c.student_count; }, 0);
+    if (!sel.value) { el.textContent = '全部学生（' + total + ' 人）'; return; }
+    var hit = d.items.filter(function (c) { return c.name.indexOf(sel.value) >= 0; })[0];
+    el.textContent = hit ? ('将发送给 ' + hit.name + ' 的 ' + hit.student_count + ' 名学生') : '';
+  } catch (e) { /* 忽略 */ }
+}
+
+async function loadBadge() {
+  if (S.role !== 'student') return;
+  try {
+    var m = await api('/api/student/messages');
+    var el = document.getElementById('who');
+    if (m.unread > 0) el.textContent = el.textContent + ' · ' + m.unread + ' 条未读';
+  } catch (e) { /* 忽略 */ }
+}
+
+async function loadHealth() {
+  try {
+    var h = await api('/api/chat/health');
+    var online = S.role === 'teacher' ? h.teacher_online : h.student_online;
+    var model = S.role === 'teacher' ? h.teacher_model : h.student_model;
+    document.getElementById('aihint').textContent =
+      '模型：' + model + (online ? '（在线）' : '（离线规则模式）') +
+      ' · RAG：' + h.rag_mode + ' / ' + h.rag_chunks + ' 条';
+  } catch (e) { /* 忽略 */ }
+}
+
+/* ============================================================
+   5. 菜单
+   ============================================================ */
+function renderMenu() {
+  var html = '';
+  S.menus.forEach(function (group) {
+    html += '<div class="cat">' + esc(group.category) + '</div>';
+    group.items.forEach(function (item) {
+      var cls = 'item' + (item.status === 'ready' ? '' : ' dev');
+      html += '<button class="' + cls + '" data-key="' + esc(item.key) + '" data-name="' + esc(item.name) +
+              '" data-status="' + item.status + '" data-endpoint="' + esc(item.endpoint) + '">' + esc(item.name) + '</button>';
+    });
+  });
+  document.getElementById('menu').innerHTML = html;
+  document.querySelectorAll('#menu button').forEach(function (btn) {
+    btn.onclick = function () {
+      if (btn.dataset.status !== 'ready') { toast('「' + btn.dataset.name + '」还在开发中，很快就能用啦～'); return; }
+      loadFeature(btn.dataset.endpoint, btn.dataset.name);
+    };
+  });
+}
+
+/* ============================================================
+   6. 首页：日历（学生） / 待办（教师）
+   ============================================================ */
+async function renderHome() {
+  var panel = document.getElementById('panel');
+  if (S.role === 'student') {
+    panel.innerHTML = '<h3>我的待办</h3><div id="todobox"></div>' +
+      '<h3 style="margin-top:18px">我的日历</h3><div id="calbox"><p class="muted">加载日历中...</p></div>';
+    await loadTodos();
+    await loadCalendar(S.calYear, S.calMonth);
+  } else {
+    panel.innerHTML = '<h3>今日概览</h3><div id="calbox"><p class="muted">加载中...</p></div>';
+    try {
+      var p = await api('/api/teacher/schedule/pending');
+      var m = await api('/api/teacher/meetings');
+      var tt = await api('/api/teacher/timetable');
+      var today = new Date().getDay() || 7;           /* 周日=7 */
+      var todays = (tt.items || []).filter(function (x) { return x.weekday === today; });
+      var courseLine = todays.length
+        ? todays.map(function (x) { return '第' + x.start + '-' + x.end + '节 ' + x.course +
+            '（' + x.class_name + '，' + x.location + '）'; }).join('；')
+        : '今天没有课，可以集中备课或处理审批～';
+      document.getElementById('calbox').innerHTML =
+        '<div class="cards">' +
+        '<div class="card">待审批调课<b>' + p.count + '</b></div>' +
+        '<div class="card">我的会议<b>' + (m.items || []).length + '</b></div>' +
+        '<div class="card">今日课程<b>' + todays.length + '</b></div>' +
+        '</div><p style="margin-top:12px">' + esc(courseLine) + '</p>' +
+        '<p class="muted">要查成绩、发通知、导出文件，直接用下面的对话框和我说就好～</p>';
+    } catch (e) { document.getElementById('calbox').innerHTML = '<p class="err">' + esc(e.message) + '</p>'; }
+  }
+}
+
+async function loadTodos() {
+  var box = document.getElementById('todobox');
+  if (!box) return;
+  try {
+    var d = await api('/api/student/todos');
+    var apps = (d.applications || []).map(function (a) {
+      return '<div style="margin:4px 0">' + esc(a.type) + ' · ' + esc(a.title) +
+        ' <span class="muted">' + esc(a.status) + ' ' + esc(a.created_at) + '</span></div>';
+    }).join('') || '<span class="muted">还没有提交过申请</span>';
+    var makeup = (d.makeup_pending || []).length
+      ? '<span style="color:#f0883e">' + esc(d.makeup_pending.join('、')) + ' 待确认补考</span>'
+      : '<span class="muted">没有待确认的补考</span>';
+    box.innerHTML =
+      '<div class="cards">' +
+      '<div class="card">未读消息<b>' + d.unread_messages + '</b></div>' +
+      '<div class="card">待确认补考<b>' + (d.makeup_pending || []).length + '</b></div>' +
+      '<div class="card">近期考试<b>' + (d.upcoming_exams || []).length + '</b></div>' +
+      '</div><div class="card" style="margin-top:12px"><b style="font-size:15px">我的申请进度</b>' +
+      apps + '<p class="muted" style="margin-top:8px">' + makeup + '</p></div>';
+  } catch (e) { box.innerHTML = '<p class="err">' + esc(e.message) + '</p>'; }
+}
+
+async function loadCalendar(year, month) {
+  var box = document.getElementById('calbox');
+  if (!box) return;
+  try {
+    var q = '/api/student/calendar' + (year && month ? '?year=' + year + '&month=' + month : '');
+    var d = await api(q);
+    S.calYear = d.year; S.calMonth = d.month;
+    var first = new Date(d.year, d.month - 1, 1).getDay();
+    var pad = (first + 6) % 7;                       /* 周一为一周第一天 */
+    var html = '<div class="cal-head"><button class="ghost small" data-action="cal-prev">‹ 上月</button>' +
+      '<b>' + d.year + ' 年 ' + d.month + ' 月</b>' +
+      '<button class="ghost small" data-action="cal-next">下月 ›</button>' +
+      '<span class="muted">绿色=课程，橙色=考试</span></div><div class="cal-grid">';
+    ['一', '二', '三', '四', '五', '六', '日'].forEach(function (w) {
+      html += '<div class="cal-cell head">周' + w + '</div>';
+    });
+    for (var i = 0; i < pad; i++) html += '<div class="cal-cell blank"></div>';
+    d.days.forEach(function (day) {
+      var courses = (day.courses || []).map(function (c) {
+        return '<span class="c" title="' + esc(c.time) + ' ' + esc(c.teacher) + '">' + esc(c.name) + '</span>';
+      }).join('');
+      var exams = (day.exams || []).map(function (e) {
+        return '<span class="e">考 ' + esc(e.name) + '</span>';
+      }).join('');
+      html += '<div class="cal-cell' + (day.is_today ? ' today' : '') + '" data-day="' + day.date +
+        '"><div class="d">' + day.day + ' ' + (day.weekday || '') + '</div>' + courses + exams + '</div>';
+    });
+    box.innerHTML = html + '</div><div id="caldetail" style="margin-top:12px"></div>';
+    S.calDays = d.days;
+  } catch (e) {
+    box.innerHTML = '<p class="err">' + esc(e.message) + '</p>';
+  }
+}
+
+/* ============================================================
+   7. 数据面板：只读渲染 + 表单页
+   ============================================================ */
+var FORM_PAGES = {
+  '/api/teacher/notifications': 'notification',
+  '/api/teacher/messages': 'message',
+  '/api/teacher/grades/upload': 'upload',
+  '/api/teacher/schedule/change': 'schedule',
+  '/api/teacher/grades/export': 'export',
+  '/api/admin/students/import': 'import-students'
+};
+
+async function loadFeature(endpoint, name) {
+  var panel = document.getElementById('panel');
+  var key = (endpoint || '').split('?')[0];
+  if (FORM_PAGES[key]) {
+    panel.innerHTML = '<h3>' + esc(name) + '</h3>' + formHtml(FORM_PAGES[key]);
+    return;
+  }
+  panel.innerHTML = '<h3>' + esc(name || '') + '</h3><p class="muted">加载中...</p>';
+  try {
+    var data = await api(endpoint);
+    panel.innerHTML = '<h3>' + esc(name || '') + '</h3>' + render(endpoint, data);
+  } catch (e) {
+    panel.innerHTML = '<h3>' + esc(name || '') + '</h3><p class="err">' + esc(e.message) + '</p>';
+  }
+}
+
+function tbl(headers, rows) {
+  var html = '<table><thead><tr>';
+  headers.forEach(function (h) { html += '<th>' + h + '</th>'; });
+  html += '</tr></thead><tbody>';
+  rows.forEach(function (row) {
+    html += '<tr>';
+    row.forEach(function (cell) { html += '<td>' + cell + '</td>'; });
+    html += '</tr>';
+  });
+  return html + '</tbody></table>';
+}
+
+function timetableGrid(items) {
+  var days = ['周一', '周二', '周三', '周四', '周五'];
+  var secs = [[1, 2, '1-2节'], [3, 4, '3-4节'], [5, 6, '5-6节'], [7, 8, '7-8节'], [9, 10, '9-10节']];
+  var html = '<table class="grid-tt"><thead><tr><th class="slot">节次</th>';
+  days.forEach(function (d) { html += '<th>' + d + '</th>'; });
+  html += '</tr></thead><tbody>';
+  secs.forEach(function (s) {
+    html += '<tr><td class="slot">' + s[2] + '</td>';
+    for (var day = 1; day <= 5; day++) {
+      var hit = items.filter(function (e) { return e.weekday === day && e.start === s[0]; })[0];
+      html += hit
+        ? '<td><b>' + esc(hit.course) + '</b><br><span class="muted">' + esc(hit.location) + '<br>' +
+          esc(hit.teacher || hit.class_name || '') + '</span></td>'
+        : '<td></td>';
+    }
+    html += '</tr>';
+  });
+  return html + '</tbody></table>';
+}
+
+/* ---------- 表单 HTML ---------- */
+function formHtml(kind) {
+  if (kind === 'notification') {
+    return '<div class="form-card"><div class="field"><label>通知标题</label>' +
+      '<input id="n_title" placeholder="例如：周五实验课调至实验楼 C302"></div>' +
+      '<div class="field"><label>通知内容</label><textarea id="n_content" placeholder="写点具体安排～"></textarea></div>' +
+      '<div class="field"><label>发送范围</label><select id="n_class" onchange="updateScope()">' +
+      '<option value="">全体学生</option><option value="2401">数据科学2401</option>' +
+      '<option value="2402">数据科学2402</option><option value="2403">数据科学2403</option></select>' +
+      '<span class="muted" id="n_scope" style="margin-left:10px">全部学生（约 180 人）</span></div>' +
+      '<button data-action="submit-notification">发布通知</button></div>';
+  }
+  if (kind === 'message') {
+    return '<div class="form-card"><div class="field"><label>学生学号</label>' +
+      '<input id="m_sno" placeholder="例如 2024010101"></div>' +
+      '<div class="field"><label>标题</label><input id="m_title" placeholder="作业提醒"></div>' +
+      '<div class="field"><label>内容</label><textarea id="m_content" placeholder="和这位同学说点什么～"></textarea></div>' +
+      '<button data-action="submit-message">发送消息</button></div>';
+  }
+  if (kind === 'upload') {
+    return '<div class="form-card"><p class="muted">表头格式：学号、姓名、班级、各课程成绩；' +
+      '可先在「导出成绩文件」下载模板。</p>' +
+      '<div class="field"><label>选择 Excel 文件（.xlsx）</label><input id="u_file" type="file" accept=".xlsx"></div>' +
+      '<button data-action="upload-grades">上传并导入</button></div>';
+  }
+  if (kind === 'schedule') {
+    return '<div class="form-card"><div class="field"><label>申请类型</label>' +
+      '<select id="s_type"><option>单独调课</option><option>教师互换调课</option></select></div>' +
+      '<div class="field"><label>课程名称</label><input id="s_course" placeholder="数据结构与算法"></div>' +
+      '<div class="field"><label>原上课时间</label><input id="s_from" placeholder="周一第3-4节 主楼A203"></div>' +
+      '<div class="field"><label>拟调整时间</label><input id="s_to" placeholder="周三第5-6节 主楼A102"></div>' +
+      '<div class="field"><label>互换对象工号（互换调课时填）</label><input id="s_target" placeholder="T1002"></div>' +
+      '<div class="field"><label>调课原因</label><textarea id="s_reason" placeholder="出差 / 会议 / 生病..."></textarea></div>' +
+      '<button data-action="submit-schedule">提交申请</button></div>';
+  }
+  if (kind === 'import-students') {
+    return '<div class="form-card"><p class="muted">Excel 表头顺序：学号、姓名、班级、性别、手机、邮箱；' +
+      '已存在的学号会自动跳过，默认密码 123456。</p>' +
+      '<div class="field"><label>选择 .xlsx 文件</label><input id="imp_file" type="file" accept=".xlsx"></div>' +
+      '<button data-action="import-students">开始导入</button></div>';
+  }
+  if (kind === 'export') {
+    return '<div class="form-card"><div class="field"><label>班级（留空=全部）</label>' +
+      '<input id="e_class" placeholder="2401 或 数据科学2401"></div>' +
+      '<button data-action="export-grades">导出 Excel</button>' +
+      '<p class="muted" style="margin-top:10px">点击后会自动下载到本地。</p></div>';
+  }
+  return '';
+}
+
+/* ---------- 只读渲染 ---------- */
+function render(ep, d) {
+  var base = ep.split('?')[0];
+
+  /* ---- 学生端 ---- */
+  if (base === '/api/student/grades') {
+    var rows = (d.items || []).map(function (g) { return [esc(g.course_name), g.credit, g.score, g.gpa]; });
+    return tbl(['课程', '学分', '成绩', '绩点'], rows) +
+      '<p class="muted" style="margin-top:10px">共 ' + d.summary.count + ' 门，平均 ' + d.summary.avg +
+      ' 分，总学分 ' + d.summary.credits + '，平均绩点 ' + d.summary.gpa + '</p>';
+  }
+  if (base === '/api/student/timetable' || base === '/api/teacher/timetable') {
+    return '<p class="muted">' + esc(d.class_name || '') + '</p>' + timetableGrid(d.items || []);
+  }
+  if (base === '/api/student/exams') {
+    var ex = (d.items || []).map(function (e) {
+      var btn = e.reserved ? '<span class="muted">' + esc(e.reserved) + '</span>'
+        : '<button class="small" data-action="reserve" data-code="' + esc(e.course_code) + '">预约</button>';
+      return [esc(e.course_name), esc(e.exam_date), esc(e.session), esc(e.room), btn];
+    });
+    return tbl(['课程', '日期', '时段', '考场', '预约'], ex);
+  }
+  if (base === '/api/student/notifications' || base === '/api/student/messages' ||
+      base === '/api/teacher/messages' || base === '/api/teacher/notifications') {
+    if (!d.items || !d.items.length) return '<p class="muted">这里暂时是空的～</p>';
+    return d.items.map(function (n) {
+      var read = n.is_read === false
+        ? ' <button class="small ghost" data-action="read-msg" data-id="' + n.id + '">标记已读</button>'
+        : ' <span class="muted">已读</span>';
+      return '<div class="card" style="margin-bottom:10px"><b style="font-size:15px">' + esc(n.title) +
+        '</b><p class="muted">' + esc(n.sender || '') + ' · ' + esc(n.created_at || '') + read +
+        '</p><p>' + esc(n.content) + '</p></div>';
+    }).join('');
+  }
+  if (base === '/api/student/profile') {
+    return '<div class="kv">' +
+      '<span class="muted">学号</span><span>' + esc(d.sno) + '</span>' +
+      '<span class="muted">姓名</span><span>' + esc(d.name) + '</span>' +
+      '<span class="muted">班级</span><span>' + esc(d.class_name) + '</span>' +
+      '<span class="muted">专业</span><span>' + esc(d.major) + '</span>' +
+      '<span class="muted">辅导员</span><span>' + esc(d.advisor) + '</span></div>' +
+      '<div class="field" style="margin-top:16px;max-width:320px"><label>手机号</label><input id="p_phone" value="' +
+      esc(d.phone) + '"></div><div class="field" style="max-width:320px"><label>邮箱</label><input id="p_email" value="' +
+      esc(d.email) + '"></div><button data-action="save-profile">保存修改</button>';
+  }
+  if (base === '/api/student/free-classrooms') {
+    var opts = [1, 2, 3, 4, 5].map(function (i) {
+      return '<option value="' + i + '">周' + '一二三四五'[i - 1] + '</option>'; }).join('');
+    var secOpts = [1, 3, 5, 7, 9].map(function (i) {
+      return '<option value="' + i + '">第 ' + i + '-' + (i + 1) + ' 节</option>'; }).join('');
+    return '<div class="row" style="max-width:560px;margin-bottom:12px"><select id="fc_day">' + opts +
+      '</select><select id="fc_sec">' + secOpts + '</select><button data-action="query-room">查询</button></div>' +
+      tbl(['空闲教室'], (d.items || []).map(function (r) { return [esc(r.room)]; }));
+  }
+  if (base === '/api/student/enrollments') {
+    return tbl(['课程', '学分', '状态'], (d.items || []).map(function (e) {
+      return [esc(e.course_name), e.credit, esc(e.status)];
+    })) + '<p class="muted" style="margin-top:10px">本学期合计 ' + d.total_credit + ' 学分</p>';
+  }
+  if (base === '/api/student/makeup') {
+    if (!d.items.length) return '<p class="muted">你没有不及格的课程，不用补考，继续保持呀～</p>';
+    return tbl(['课程', '成绩', '补考状态'], d.items.map(function (m) {
+      return [esc(m.course_name), m.score, m.confirmed ? '已确认' : '待确认'];
+    })) + '<button style="margin-top:12px" data-action="submit-makeup">一键确认全部补考</button>';
+  }
+  if (base === '/api/student/applications') {
+    var type = decodeURIComponent((ep.split('app_type=')[1] || '').split('&')[0]);
+    var form = '<div class="form-card"><div class="field"><label>申请说明</label>' +
+      '<textarea id="a_detail" placeholder="写清楚申请原因，方便辅导员审核～"></textarea></div>' +
+      '<button data-action="submit-application" data-type="' + esc(type) + '">提交「' + esc(type) + '」</button></div>';
+    var list = d.items.length
+      ? tbl(['类型', '标题', '状态', '时间'], d.items.map(function (a) {
+          return [esc(a.type), esc(a.title), esc(a.status), esc(a.created_at)]; }))
+      : '<p class="muted">还没有提交过这类申请。</p>';
+    return form + '<h3 style="margin-top:8px">我的申请记录</h3>' + list;
+  }
+  if (base === '/api/student/training-plan') {
+    var plan = (d.plan || []).map(function (s) {
+      return '<div class="card" style="margin-bottom:10px;min-width:260px"><b style="font-size:15px">' +
+        esc(s.semester) + '（' + s.credits + ' 学分）</b><p class="muted">' +
+        s.courses.map(function (c) { return esc(c.name) + ' ' + c.credit; }).join('、') + '</p></div>';
+    }).join('');
+    return '<p class="muted">总学分要求 ' + d.total_credits + '，已修 ' + d.earned_credits + ' 学分</p>' + plan;
+  }
+  if (base === '/api/student/textbooks') {
+    var boxes = (d.items || []).map(function (b, i) {
+      return '<tr><td>' + esc(b.course) + '</td><td>' + esc(b.name) + '</td><td>' + esc(b.publisher) +
+        '</td><td>¥' + b.price + '</td><td>' + esc(b.status) + '</td><td>' +
+        (b.ordered ? '已预订' : '<label><input type="checkbox" class="tb" value="' + b.id + '"> 预订</label>') +
+        '</td></tr>';
+    }).join('');
+    return '<table><thead><tr><th>课程</th><th>教材</th><th>出版社</th><th>价格</th><th>状态</th><th>操作</th></tr></thead><tbody>' +
+      boxes + '</tbody></table><p class="muted" style="margin-top:10px">全部教材合计 ¥' + d.total_fee +
+      '，已预订 ¥' + d.ordered_fee + '</p><button style="margin-top:10px" data-action="order-textbooks">预订选中教材</button>';
+  }
+  if (base === '/api/student/electives') {
+    return tbl(['课程', '学分', '老师', '时间地点', '操作'], (d.items || []).map(function (e) {
+      return [esc(e.name), e.credit, esc(e.teacher), esc(e.time) + ' ' + esc(e.location),
+        e.selected ? '<span class="muted">已选</span>'
+          : '<button class="small" data-action="select-elective" data-name="' + esc(e.name) + '">选课</button>'];
+    })) + '<p class="muted" style="margin-top:10px">已选选修 ' + d.selected_credit + ' 学分</p>';
+  }
+  if (base === '/api/student/academic-status') {
+    return '<div class="cards"><div class="card">已修学分<b>' + d.earned_credits + '</b></div>' +
+      '<div class="card">平均绩点<b>' + d.gpa + '</b></div>' +
+      '<div class="card">距毕业还需<b>' + d.need_credits + '</b></div></div>' +
+      '<p style="margin-top:12px">' + esc(d.warning) + '</p>';
+  }
+  if (base === '/api/student/selection-list') {
+    return tbl(['学号', '姓名', '已选课程'], (d.items || []).map(function (s) {
+      return [esc(s.sno), esc(s.name), esc((s.courses || []).join('、'))]; }));
+  }
+
+  /* ---- 教师端 ---- */
+  if (base === '/api/teacher/grades/analysis') {
+    return tbl(['课程', '平均分', '及格率', '最高', '最低', '人数'], (d.items || []).map(function (i) {
+      return [esc(i.course), i.avg, i.pass_rate + '%', i.max, i.min, i.count]; }));
+  }
+  if (base === '/api/teacher/grades') {
+    var filter = '<div class="row" style="margin-bottom:12px;max-width:760px">' +
+      '<input id="g_class" placeholder="班级，如 2401" style="max-width:180px">' +
+      '<input id="g_course" placeholder="课程，如 高等数学" style="max-width:200px">' +
+      '<input id="g_sno" placeholder="学号（可空）" style="max-width:200px">' +
+      '<button data-action="filter-grades">筛选</button></div>';
+    return filter + tbl(['学号', '姓名', '班级', '各科成绩'], (d.items || []).map(function (r) {
+      var detail = Object.keys(r.grades).map(function (k) { return esc(k) + ' ' + r.grades[k]; }).join('<br>');
+      return [esc(r.sno), esc(r.name), esc(r.class_name), detail];
+    })) + '<p class="muted" style="margin-top:10px">平均分 ' + d.stats.avg_score + '，及格率 ' +
+      d.stats.pass_rate + '%（共 ' + d.stats.count + ' 名学生）</p>';
+  }
+  if (base === '/api/teacher/classes') {
+    return tbl(['班级', '年级', '专业', '辅导员', '人数'], (d.items || []).map(function (c) {
+      return [esc(c.name), esc(c.grade), esc(c.major), esc(c.advisor), c.student_count]; }));
+  }
+  if (base === '/api/teacher/students') {
+    return tbl(['学号', '姓名', '性别', '班级', '手机'], (d.items || []).map(function (s) {
+      return [esc(s.sno), esc(s.name), esc(s.gender), esc(s.class_name), esc(s.phone)]; }));
+  }
+  if (base === '/api/teacher/meetings') {
+    return tbl(['会议', '时间', '地点', '内容'], (d.items || []).map(function (m) {
+      return [esc(m.title), esc(m.start_time), esc(m.location), esc(m.content)]; }));
+  }
+  if (base === '/api/teacher/schedule/requests') {
+    return tbl(['类型', '课程', '原时间', '新时间', '状态'], (d.items || []).map(function (r) {
+      return [esc(r.type), esc(r.course), esc(r.from), esc(r.to), esc(r.status)]; }));
+  }
+  if (base === '/api/teacher/proctor') {
+    var table = d.items.length
+      ? tbl(['日期', '时段', '课程', '考场', '职责'], d.items.map(function (p) {
+          return [esc(p.date), esc(p.session), esc(p.course), esc(p.room), esc(p.duty)]; }))
+      : '<p class="muted">暂时没有监考任务～</p>';
+    return table + '<div class="form-card" style="margin-top:14px"><div class="field"><label>新增监考</label>' +
+      '<input id="pr_course" placeholder="课程名称"></div><div class="field"><label>考试日期</label>' +
+      '<input id="pr_date" placeholder="2025-06-27"></div><div class="field"><label>考场</label>' +
+      '<input id="pr_room" placeholder="主楼A203"></div><button data-action="add-proctor">添加监考</button></div>';
+  }
+  if (base === '/api/teacher/textbooks') {
+    var tb = tbl(['课程', '教材', '出版社', '价格', '状态', '已订'], (d.items || []).map(function (b) {
+      return [esc(b.course), esc(b.name), esc(b.publisher), '¥' + b.price, esc(b.status), b.order_count]; }));
+    return tb + '<div class="form-card" style="margin-top:14px"><div class="field"><label>新增教材征订</label>' +
+      '<input id="tb_name" placeholder="教材名称"></div><div class="field"><label>对应课程</label>' +
+      '<input id="tb_course" placeholder="数据结构与算法"></div><div class="field"><label>出版社 / ISBN</label>' +
+      '<input id="tb_pub" placeholder="清华大学出版社 978-7-302-xxxxx"></div><div class="field"><label>单价</label>' +
+      '<input id="tb_price" placeholder="49.0"></div><button data-action="add-textbook">提交征订</button></div>';
+  }
+  if (base === '/api/teacher/schedule/pending') {
+    if (!d.items.length) return '<p class="muted">目前没有待审批的调课申请，很清爽～</p>';
+    return tbl(['申请人', '类型', '课程', '原时间', '新时间', '理由', '操作'], d.items.map(function (r) {
+      return [esc(r.teacher), esc(r.type), esc(r.course), esc(r.from), esc(r.to), esc(r.reason || ''),
+        '<button class="small" data-action="approve-schedule" data-id="' + r.id + '">通过</button> ' +
+        '<button class="small danger" data-action="reject-schedule" data-id="' + r.id + '">驳回</button>'];
+    }));
+  }
+
+  /* ---- 管理员端 ---- */
+  if (base === '/api/admin/stats') {
+    var keys = [['students', '学生'], ['teachers', '教师'], ['classes', '班级'], ['grades', '成绩记录'],
+                ['timetable', '课表条目'], ['pending_recovery', '待处理找回'],
+                ['pending_applications', '待审批申请']];
+    return '<div class="cards">' + keys.map(function (k) {
+      return '<div class="card">' + k[1] + '<b>' + (d[k[0]] || 0) + '</b></div>'; }).join('') + '</div>';
+  }
+  if (base === '/api/admin/classes-overview') {
+    return tbl(['班级', '学生数', '平均分', '及格率', '不及格条数', '总学分'], (d.items || []).map(function (c) {
+      return [esc(c.class_name), c.students, c.avg, c.pass_rate + '%', c.failed, c.credits]; }));
+  }
+  if (base === '/api/admin/applications') {
+    if (!d.items || !d.items.length) return '<p class="muted">还没有学生提交申请。</p>';
+    return tbl(['学号', '姓名', '班级', '类型', '标题', '状态', '操作'], d.items.map(function (a) {
+      var ops = (a.status === '已提交' || a.status === '审核中')
+        ? '<button class="small" data-action="approve-app" data-id="' + a.id + '">通过</button> ' +
+          '<button class="small danger" data-action="reject-app" data-id="' + a.id + '">驳回</button>'
+        : '<span class="muted">' + esc(a.status) + '</span>';
+      return [esc(a.sno), esc(a.name), esc(a.class_name), esc(a.type), esc(a.title), esc(a.status), ops];
+    }));
+  }
+  if (base === '/api/admin/students') {
+    return tbl(['学号', '姓名', '班级', '操作'], (d.items || []).map(function (s) {
+      return [esc(s.sno), esc(s.name), esc(s.class_name),
+        '<button class="small ghost" data-action="reset-student" data-id="' + esc(s.sno) + '">重置密码</button> ' +
+        '<button class="small danger" data-action="del-student" data-id="' + esc(s.sno) + '">删除</button>']; }));
+  }
+  if (base === '/api/admin/teachers') {
+    return tbl(['工号', '姓名', '职称', '操作'], (d.items || []).map(function (t) {
+      return [esc(t.tno), esc(t.name), esc(t.title),
+        '<button class="small ghost" data-action="reset-teacher" data-id="' + esc(t.tno) + '">重置密码</button> ' +
+        '<button class="small danger" data-action="del-teacher" data-id="' + esc(t.tno) + '">删除</button>']; }));
+  }
+  if (base === '/api/admin/recovery') {
+    return tbl(['姓名', '班级', '类型', '联系方式', '状态', '操作'], (d.items || []).map(function (r) {
+      var ops = r.status === '待处理'
+        ? '<button class="small" data-action="approve" data-id="' + r.id + '">通过并重置</button> ' +
+          '<button class="small danger" data-action="reject" data-id="' + r.id + '">驳回</button>'
+        : '<span class="muted">' + esc(r.note) + '</span>';
+      return [esc(r.name), esc(r.class_name), esc(r.request_type), esc(r.contact), esc(r.status), ops];
+    }));
+  }
+  return '<pre class="muted">' + esc(JSON.stringify(d, null, 2)).slice(0, 4000) + '</pre>';
+}
+
+/* ============================================================
+   8. 面板事件（按钮 / 表单 / 上传）
+   ============================================================ */
+document.getElementById('panel').addEventListener('click', async function (ev) {
+  // 日历格子点击：展示当天详细安排
+  var cell = ev.target.closest('.cal-cell[data-day]');
+  if (cell) {
+    var day = (S.calDays || []).filter(function (x) { return x.date === cell.dataset.day; })[0];
+    var box = document.getElementById('caldetail');
+    if (day && box) {
+      var lines = (day.courses || []).map(function (c) {
+        return '第 ' + c.sections + ' 节 · ' + c.name + '（' + c.time + '，' + c.teacher + '）';
+      }).concat((day.exams || []).map(function (e) { return '考试：' + e.name + ' ' + e.time + ' ' + e.room; }));
+      box.innerHTML = '<div class="card"><b>' + day.date + ' ' + day.weekday + '</b><p>' +
+        (lines.length ? esc(lines.join('\n')).replace(/\n/g, '<br>') : '这天没有课，安心休息～') + '</p></div>';
+    }
+    return;
+  }
+
+  var btn = ev.target.closest('button[data-action]');
+  if (!btn) return;
+  var action = btn.dataset.action;
+  var id = btn.dataset.id;
+  try {
+    if (action === 'cal-prev' || action === 'cal-next') {
+      var y = S.calYear, m = S.calMonth + (action === 'cal-next' ? 1 : -1);
+      if (m < 1) { m = 12; y -= 1; } if (m > 12) { m = 1; y += 1; }
+      await loadCalendar(y, m);
+      return;
+    }
+    if (action === 'filter-grades') {
+      var qs = [];
+      var v1 = document.getElementById('g_class').value.trim();
+      var v2 = document.getElementById('g_course').value.trim();
+      var v3 = document.getElementById('g_sno').value.trim();
+      if (v1) qs.push('class_name=' + encodeURIComponent(v1));
+      if (v2) qs.push('course_name=' + encodeURIComponent(v2));
+      if (v3) qs.push('sno=' + encodeURIComponent(v3));
+      loadFeature('/api/teacher/grades' + (qs.length ? '?' + qs.join('&') : ''), '学生成绩查询');
+      return;
+    }
+    if (action === 'read-msg') {
+      await api('/api/student/messages/' + id + '/read', { method: 'POST' });
+      loadFeature('/api/student/messages', '消息列表');
+      return;
+    }
+    if (action === 'change-pwd') {
+      var oldPwd = prompt('请输入当前密码');
+      if (!oldPwd) return;
+      var newPwd = prompt('请输入新密码（至少 6 位）');
+      if (!newPwd) return;
+      var cp = await api('/api/auth/change-password', { method: 'POST',
+        body: { old_password: oldPwd, new_password: newPwd } });
+      toast(cp.message || '密码已修改');
+      return;
+    }
+    if (action === 'reserve') {
+      var r1 = await api('/api/student/exams/reserve', { method: 'POST', body: { course_code: btn.dataset.code, session: '上午' } });
+      toast(r1.message || '预约好啦'); loadFeature('/api/student/exams', '考试信息查询');
+      return;
+    }
+    if (action === 'save-profile') {
+      await api('/api/student/profile', { method: 'PUT', body: {
+        phone: document.getElementById('p_phone').value,
+        email: document.getElementById('p_email').value } });
+      toast('已经帮你保存好了～'); return;
+    }
+    if (action === 'query-room') {
+      var day = document.getElementById('fc_day').value, sec = document.getElementById('fc_sec').value;
+      loadFeature('/api/student/free-classrooms?weekday=' + day + '&section=' + sec, '查询空闲教室'); return;
+    }
+    if (action === 'submit-makeup') {
+      var m1 = await api('/api/student/makeup/confirm', { method: 'POST', body: {} });
+      toast(m1.message); loadFeature('/api/student/makeup', '补考确认'); return;
+    }
+    if (action === 'submit-application') {
+      var a1 = await api('/api/student/applications', { method: 'POST', body: {
+        app_type: btn.dataset.type, title: btn.dataset.type,
+        detail: document.getElementById('a_detail').value } });
+      toast(a1.message); return;
+    }
+    if (action === 'order-textbooks') {
+      var ids = Array.prototype.slice.call(document.querySelectorAll('input.tb:checked')).map(function (x) { return Number(x.value); });
+      var o1 = await api('/api/student/textbooks/order', { method: 'POST', body: { textbook_ids: ids } });
+      toast(o1.message); loadFeature('/api/student/textbooks', '教材预订'); return;
+    }
+    if (action === 'select-elective') {
+      var s1 = await api('/api/student/electives/select', { method: 'POST', body: { course_name: btn.dataset.name } });
+      toast(s1.message); loadFeature('/api/student/electives', '自主选课'); return;
+    }
+    if (action === 'submit-notification') {
+      var n1 = await api('/api/teacher/notifications', { method: 'POST', body: {
+        title: document.getElementById('n_title').value,
+        content: document.getElementById('n_content').value,
+        class_name: document.getElementById('n_class').value || null } });
+      toast('已发给 ' + n1.scope + ' 的 ' + n1.count + ' 名学生'); return;
+    }
+    if (action === 'submit-message') {
+      var m2 = await api('/api/teacher/messages', { method: 'POST', body: {
+        sno: document.getElementById('m_sno').value.trim(), title: '教师消息',
+        content: document.getElementById('m_content').value } });
+      toast(m2.message); return;
+    }
+    if (action === 'submit-schedule') {
+      var s2 = await api('/api/teacher/schedule/change', { method: 'POST', body: {
+        change_type: document.getElementById('s_type').value,
+        course_name: document.getElementById('s_course').value,
+        from_slot: document.getElementById('s_from').value,
+        to_slot: document.getElementById('s_to').value,
+        target_tno: document.getElementById('s_target').value,
+        reason: document.getElementById('s_reason').value } });
+      toast(s2.message); return;
+    }
+    if (action === 'export-grades') {
+      var cls = document.getElementById('e_class').value.trim();
+      await downloadFile('/api/teacher/grades/export' + (cls ? '?class_name=' + encodeURIComponent(cls) : ''));
+      toast('已开始下载'); return;
+    }
+    if (action === 'import-students') {
+      var fi = document.getElementById('imp_file').files[0];
+      if (!fi) { toast('先选一个 .xlsx 文件呀'); return; }
+      var ir = await apiUpload('/api/admin/students/import', fi);
+      toast(ir.message);
+      loadFeature('/api/admin/students', '学生账号管理');
+      return;
+    }
+    if (action === 'upload-grades') {
+      var f = document.getElementById('u_file').files[0];
+      if (!f) { toast('先选一个 .xlsx 文件呀'); return; }
+      var up = await apiUpload('/api/teacher/grades/upload', f);
+      toast(up.message); return;
+    }
+    if (action === 'add-proctor') {
+      var p1 = await api('/api/teacher/proctor', { method: 'POST', body: {
+        course_name: document.getElementById('pr_course').value,
+        exam_date: document.getElementById('pr_date').value,
+        room: document.getElementById('pr_room').value } });
+      toast(p1.message); loadFeature('/api/teacher/proctor', '监考安排'); return;
+    }
+    if (action === 'add-textbook') {
+      var t1 = await api('/api/teacher/textbooks', { method: 'POST', body: {
+        name: document.getElementById('tb_name').value,
+        course_name: document.getElementById('tb_course').value,
+        publisher: document.getElementById('tb_pub').value,
+        price: Number(document.getElementById('tb_price').value || 0) } });
+      toast(t1.message); loadFeature('/api/teacher/textbooks', '教材管理'); return;
+    }
+    if (action === 'approve-schedule' || action === 'reject-schedule') {
+      var ap = await api('/api/teacher/schedule/' + id + '/approve', { method: 'POST',
+        body: { action: action === 'approve-schedule' ? 'approve' : 'reject' } });
+      toast(ap.message); loadFeature('/api/teacher/schedule/pending', '调课审批'); return;
+    }
+    if (action === 'reset-student' || action === 'del-student') {
+      if (action === 'del-student' && !confirm('确认删除学生 ' + id + '？')) return;
+      var url = '/api/admin/students/' + id + (action === 'del-student' ? '' : '/reset-password');
+      var o2 = await api(url, { method: action === 'del-student' ? 'DELETE' : 'POST' });
+      toast(o2.message); loadFeature('/api/admin/students', '学生账号管理'); return;
+    }
+    if (action === 'reset-teacher' || action === 'del-teacher') {
+      if (action === 'del-teacher' && !confirm('确认删除教师 ' + id + '？')) return;
+      var u3 = '/api/admin/teachers/' + id + (action === 'del-teacher' ? '' : '/reset-password');
+      var o3 = await api(u3, { method: action === 'del-teacher' ? 'DELETE' : 'POST' });
+      toast(o3.message); loadFeature('/api/admin/teachers', '教师账号管理'); return;
+    }
+    if (action === 'approve-app' || action === 'reject-app') {
+      var ap2 = await api('/api/admin/applications/' + id + '/handle', { method: 'POST',
+        body: { action: action === 'approve-app' ? 'approve' : 'reject' } });
+      toast(ap2.message); loadFeature('/api/admin/applications', '学生申请审批');
+      return;
+    }
+    if (action === 'approve' || action === 'reject') {
+      var o4 = await api('/api/admin/recovery/' + id + '/handle', { method: 'POST',
+        body: { action: action, new_password: '123456' } });
+      toast(o4.message); loadFeature('/api/admin/recovery', '找回申请处理'); return;
+    }
+  } catch (e) { toast(e.message); }
+});
+
+/* ============================================================
+   9. AI 对话
+   ============================================================ */
+function bubble(kind, text) {
+  var log = document.getElementById('chatlog');
+  var div = document.createElement('div');
+  div.className = 'msg ' + kind;
+  div.textContent = text;
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+  return div;
+}
+
+async function sendAsk() {
+  var input = document.getElementById('ask');
+  var text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  bubble('me', text);
+  var holder = bubble('ai', '让我想想呀...');
+  try {
+    var res = await api('/api/chat', { method: 'POST', body: { message: text, session_id: S.session } });
+    holder.textContent = res.answer;
+    if (res.trace && res.trace.length) {
+      var t = document.createElement('div');
+      t.className = 'trace';
+      t.textContent = '过程：' + res.trace[res.trace.length - 1];
+      holder.appendChild(t);
+    }
+    if (res.ui_actions && res.ui_actions.length) {
+      var act = res.ui_actions[0];
+      if (act.type === 'navigate') openByPage(act.page);
+      if (act.type === 'download') downloadFile(act.url).catch(function (e) { toast(e.message); });
+    }
+  } catch (e) {
+    holder.className = 'msg ai';
+    holder.textContent = '呀，出了点小问题：' + e.message;
+  }
+}
+
+function openByPage(page) {
+  var map = {
+    timetable: ['/api/student/timetable', '个人课表查询'],
+    grades: ['/api/student/grades', '学生成绩查询'],
+    exams: ['/api/student/exams', '考试信息查询'],
+    notifications: ['/api/student/notifications', '通知公告'],
+    messages: ['/api/student/messages', '消息列表'],
+    enrollments: ['/api/student/enrollments', '选课情况'],
+    classrooms: ['/api/student/free-classrooms', '空闲教室'],
+    makeup_confirm: ['/api/student/makeup', '补考确认'],
+    textbook_order: ['/api/student/textbooks', '教材预订'],
+    self_course: ['/api/student/electives', '自主选课'],
+    training_plan: ['/api/student/training-plan', '个人培养方案'],
+    applications: ['/api/student/applications', '我的申请'],
+    academic_status: ['/api/student/academic-status', '学业情况'],
+    selection_confirm: ['/api/student/enrollments', '选课情况'],
+    textbook_order: ['/api/student/textbooks', '教材预订'],
+    select_elective: ['/api/student/electives', '自主选课']
+  };
+  if (S.role === 'teacher') {
+    map = {
+      grades: ['/api/teacher/grades', '学生成绩查询'],
+      my_timetable: ['/api/teacher/timetable', '我的课程表'],
+      meetings: ['/api/teacher/meetings', '会议安排'],
+      proctor: ['/api/teacher/proctor', '监考安排'],
+      textbook_manage: ['/api/teacher/textbooks', '教材管理'],
+      approve_change: ['/api/teacher/schedule/pending', '调课审批'],
+      send_notification: ['/api/teacher/notifications', '发送通知']
+    };
+  }
+  var hit = map[page];
+  if (hit) loadFeature(hit[0], hit[1]);
+}
+
+/* ============================================================
+   10. 自动登录
+   ============================================================ */
+(function init() { if (S.token) { boot(); } })();
+</script>
+</body>
+</html>
