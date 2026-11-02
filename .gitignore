@@ -20,3 +20,6 @@ logs/
 !.vscode/settings.json
 .idea/
 .DS_Store
+# ---------- 本地工具（体积过大，不入库）----------
+tools/*.exe
+tools/*.dll
